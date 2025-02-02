@@ -1,3 +1,4 @@
+::ForkGitResetCommit v0.3_EN
 ::Sebastian Marin 2025
 ::Do with this whatever you want unless you make
 ::money with it. In that case, idk, it IS just a batch file.
