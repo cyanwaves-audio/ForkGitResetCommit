@@ -13,8 +13,8 @@ for /F "tokens=1,2 delims=#" %%a in ('"prompt #$H#$E# & echo on & for %%b in (1)
 
 call :ColorText B "Welcome to the 'GodDammitFork' utility"
 
-:: REPLACE with path to your local copy of the repo
-cd /d "C:\DUAL EFFECT\TormentedSoul2"
+::REPLACE with path to your local copy of the repo
+cd /d "C:\...\... ...\YourRepo"
 
 ::===================================
 
