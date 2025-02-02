@@ -63,7 +63,7 @@ goto :eof
 	echo/
 	echo/
 
-	call :ColorText 6 "Undo last commit ^?"
+	call :ColorText 6 "Undo last commit"
 
 	choice /c YN 
 	if %ERRORLEVEL% EQU 1 goto do_undo	
@@ -78,7 +78,7 @@ goto :eof
 	echo/
 	echo/
 
-	call :ColorText 6 "Save changes to new stash ^?"
+	call :ColorText 6 "Save changes to new stash"
 	choice /c YN
 	if %ERRORLEVEL% EQU 1 goto dostash
 	if %ERRORLEVEL% EQU 2 goto endstaged
