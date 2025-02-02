@@ -24,7 +24,7 @@ On start, executes and reads Git Status.
     [N] Exit without changes  
 
   On continuing, your last committed files will be moved to the Staged state. It will then ask if you want to save them to a new stash[Y/N].  
-    [Y] Continue saving to stash. Creates a new stash named "[COMMITSUBJECT] // [DATE]". Will exit on saved.  
+    [Y] Continue saving to stash. Creates a new stash named "[COMMITSUBJECT] // [DATE] | [TIME]". Will exit on saved.  
     [N] Exit, files left in Staged state.  
   
   
