@@ -13,39 +13,65 @@ for /F "tokens=1,2 delims=#" %%a in ('"prompt #$H#$E# & echo on & for %%b in (1)
 
 call :ColorText B "Welcome to the 'GodDammitFork' utility"
 
-::REPLACE with path to your local copy of the repo
-cd /d "C:\...\... ...\YourRepo"
 
-::===================================
+echo\
+echo\
 
-echo/
-echo/
-call :ColorText 3 "Running Git status"
-echo/
+:askpath
+	::ask for repo path
+	set /p REPO_PATH=Enter path to your repo:
 
-:: run git status and check if working tree is clean
-set dirty=0
-for /f "delims=" %%i in ('git status --porcelain') do (
-    set dirty=1
-)
+	::check if the path exists
+	if not exist "%REPO_PATH%\" (
+    call :ColorText 4 "Folder not found."
+	echo\
+	pause
+	goto :askpath
+	)
 
-echo/
+	::check if .git folder exists inside path
+	if exist "%REPO_PATH%\.git\" (
+    goto :gotopath
+	) else (
+    call :ColorText 4 "Folder is not a git repository."
+	echo\
+	pause
+	goto :askpath
+	)
+goto :eof
 
-if !dirty! == 1 (
-    call :statusdirty
-) else (
-    call :statusclean
+:gotopath
+	cd /d "%REPO_PATH%"
+	goto :init
+goto :eof
+
 	
-)
+:init
+	echo/
+	echo/
+	call :ColorText 3 "Running Git status"
+	echo/
+	:: run git status and check if working tree is clean
+	set dirty=0
+	for /f "delims=" %%i in ('git status --porcelain') do (
+    set dirty=1
+	)
+	
+	echo/
+	
+	if !dirty! == 1 (
+		goto :statusdirty
+	) else (
+		goto :statusclean
+		
+	)
 goto :eof
 
 
 :statusdirty
 	call :ColorText 4 "Working Tree dirty. Unstaged or staged files."
 	echo/
-	call :ColorText 3 "Closing."
-	echo/
-	timeout /t 10
+	goto :end
 goto :eof
 
 
@@ -55,7 +81,20 @@ goto :eof
 	call :ColorText 4 "Working Tree clean. You can proceed."
 	echo/
 	echo/
-	goto :undocommit
+	goto :checkcommit
+goto :eof
+
+:checkcommit
+
+	git log -1 --oneline HEAD ^..@{u} >nul 2>&1
+	if %errorlevel% equ 0 (
+	echo\
+    call :ColorText 4 "No commits to undo."
+	echo\
+	pause
+	) else (
+    goto :undocommit
+	)
 goto :eof
 
 
@@ -68,6 +107,7 @@ goto :eof
 	choice /c YN 
 	if %ERRORLEVEL% EQU 1 goto do_undo	
 	if %ERRORLEVEL% EQU 2 goto end
+goto :eof
 
 :do_undo
 	git reset --soft HEAD~
@@ -130,4 +170,3 @@ goto :eof
 	findstr /v /a:%1 /R "^$" "%~2" nul
 	del "%~2" > nul 2>&1
 goto :eof
-
