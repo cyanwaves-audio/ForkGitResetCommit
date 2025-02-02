@@ -41,7 +41,7 @@ goto :eof
 
 
 :statusdirty
-	call :ColorText 4 "Working Tree dirty (unstaged and/or staged files)."
+	call :ColorText 4 "Working Tree dirty. Unstaged or staged files."
 	echo/
 	call :ColorText 3 "Closing."
 	echo/
