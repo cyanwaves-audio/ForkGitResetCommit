@@ -9,7 +9,7 @@ If you don't know what Fork or Git is, or you haven't had any issues with them, 
 You NEED to edit line 17 of the batch file for it to work.  
 Just put in the full path to the repo you're using:  
 
-cd /d "C:\...\.. ..\YourRepo"  
+    cd /d "C:\...\.. ..\YourRepo"  
 
 
 ## How it works:  
@@ -20,10 +20,12 @@ On start, executes and reads Git Status.
   
   
   If git status outputs "working tree clean", it will ask if you want to undo your last commit [Y/N].  
+  
     [Y] Continue with undo  
     [N] Exit without changes  
 
   On continuing, your last committed files will be moved to the Staged state. It will then ask if you want to save them to a new stash[Y/N].  
+  
     [Y] Continue saving to stash. Creates a new stash named "[COMMITSUBJECT] // [DATE] | [TIME]". Will exit on saved.  
     [N] Exit, files left in Staged state.  
   
