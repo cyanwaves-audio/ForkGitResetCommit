@@ -26,3 +26,7 @@ On start, executes and reads Git Status.
   On continuing, your last committed files will be moved to the Staged state. It will then ask if you want to save them to a new stash[Y/N].  
     [Y] Continue saving to stash. Creates a new stash named "[COMMITSUBJECT] // [DATE]". Will exit on saved.  
     [N] Exit, files left in Staged state.  
+  
+  
+    
+  I've included some icons for the batch file shortcut. I think they encapsulate the mood when needing to do this.  
