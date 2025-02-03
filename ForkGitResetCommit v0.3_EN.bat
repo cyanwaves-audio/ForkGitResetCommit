@@ -1,4 +1,3 @@
-::ForkGitResetCommit v0.3_EN
 ::Sebastian Marin 2025
 ::Do with this whatever you want unless you make
 ::money with it. In that case, idk, it IS just a batch file.
@@ -72,6 +71,8 @@ goto :eof
 :statusdirty
 	call :ColorText 4 "Working Tree dirty. Unstaged or staged files."
 	echo/
+	call :ColorText 4 "Save or remove them before attempting again."
+	echo/
 	goto :end
 goto :eof
 
@@ -91,6 +92,14 @@ goto :eof
 	if %errorlevel% equ 0 (
 	echo\
     call :ColorText 4 "No commits to undo."
+	echo/
+	echo/
+	call :ColorText 6 "Revert repo locally to state before last pull"
+
+	choice /c YN 
+	if %ERRORLEVEL% EQU 1 goto do_undo	
+	if %ERRORLEVEL% EQU 2 goto end
+	
 	echo\
 	pause
 	) else (
