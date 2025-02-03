@@ -4,4 +4,7 @@ Basically a batch file with git commands. Tested with Fork and Git-2.47.1.2 on W
 
 Don't use it if you're not familiar with Fork/Git.  
 
-I've also included some icons for the batch file shortcut. I think they encapsulate the mood when you need to do this.
+I've also included some icons for the batch file shortcut. I think they encapsulate the mood when you need to do this.  
+
+  
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/F1F6IPV5V)
