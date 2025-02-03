@@ -90,7 +90,7 @@ goto :eof
 :checkcommit
 
 	git log -1 --oneline HEAD ^..@{u} >nul 2>&1
-	if %errorlevel% equ 0 (
+	if %errorlevel% equ 1 (
 	echo\
     call :ColorText 4 "No commits to undo."
 	echo/
