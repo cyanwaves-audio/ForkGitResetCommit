@@ -6,5 +6,6 @@ Don't use it if you're not familiar with Fork/Git.
 
 I've also included some icons for the batch file shortcut. I think they encapsulate the mood when you need to do this.  
 
-  
+
+If you find this useful, please consider buying me a coffee c:  
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/F1F6IPV5V)
