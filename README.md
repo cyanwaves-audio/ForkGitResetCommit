@@ -1,5 +1,5 @@
 # ForkGitResetCommit  
-A little tool I made for resetting my last commit when encountering after pushing with Fork.  
+A little tool I made for resetting my last commit when encountering errors after pushing with Fork.  
 Basically a batch file with git commands. Tested with Fork and Git-2.47.1.2 on Windows 10.  
 
 Don't use it if you're not familiar with Fork/Git.  
